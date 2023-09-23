@@ -8,7 +8,7 @@ Creating a private Ethereum network has become more challenging with the depreca
 
 ## Overview
 
-This repository provides a set of scripts that streamline the setup of a private Ethereum network. It offers configuration options for key parameters, including keystore passwords, node data directories, and network specifications like the chainId and block period interval. With these tools, you can easily create and manage a private Ethereum network for your specific needs.
+This repository provides a set of scripts that streamline the setup of a private Ethereum network. It offers configuration options for key parameters, including keystore passwords, node data directories, and network specifications like the chain id and block period interval. With these tools, you can easily create and manage a private Ethereum network for your specific needs.
 
 The **bootnode** plays a crucial role in this network, facilitating the association between nodes.
 
@@ -22,7 +22,7 @@ The **bootnode** plays a crucial role in this network, facilitating the associat
 
 Here are the primary scripts you'll be working with:
 
-- `network_setup.sh`: Use this script to define the number of nodes and specify network parameters like the chain id and block period interval.
+- `network_setup.sh`: Employ this script to configure essential network settings such as the number of nodes, chain ID, and block period interval. Upon execution, it will generate a *bootnode_start.sh* script and N *nodeX_start.sh* scripts
 - `bootnode_start.sh`: Use this script to run the bootnode, which serves as the entry point for the network.
 - `nodeX_start.sh`: These scripts represent nodes responsible for holding validator keys and producing blocks on your private Ethereum network.
 
