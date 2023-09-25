@@ -22,6 +22,12 @@ if [ -d "bootnode" ]; then
   rm -rf "bootnode"
 fi
 
+# Remove the "logs" directory if it exists
+if [ -d "logs" ]; then
+  echo "Removing directory: logs"
+  rm -rf "logs"
+fi
+
 # Remove "bootnode_start.sh" file
 echo "Removing file: bootnode_start.sh"
 rm -f bootnode_start.sh

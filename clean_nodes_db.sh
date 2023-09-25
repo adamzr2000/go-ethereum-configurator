@@ -16,3 +16,12 @@ if [ ${#matches[@]} -gt 0 ]; then
 else
   echo "No matching directories found."
 fi
+
+
+# Remove all nodeX.log files
+for file in logs/node*.log; do
+  if [ -f "$file" ]; then
+    echo "Removing file: $file"
+    rm -f "$file"
+  fi
+done
