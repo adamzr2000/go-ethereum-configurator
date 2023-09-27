@@ -37,8 +37,9 @@ echo "Save logs option: $saveLogs"
 # Create .env file
 touch .env
 
-# Write NETWORK_ID to .env
+echo "# blockchain network config" >> .env
 echo "NETWORK_ID=$chainID" >> .env
+echo "NUM_NODES=$numNodes" >> .env
 echo "SAVE_LOGS=$saveLogs" >> .env
 
 # Create the logs directory
@@ -75,13 +76,13 @@ echo "\$output"
 source .env
 
 # Define the command
-command="geth --identity 'node$i' --datadir node$i --syncmode 'full' --ws --ws.addr \$IP_NODE_$i --ws.port \$WS_PORT_NODE_$i --port \$ETH_PORT_NODE_$i --bootnodes \$BOOTNODE_URL --ws.api 'eth,net,web3,personal,miner,admin' --networkid \$NETWORK_ID --nat 'any' --allow-insecure-unlock --authrpc.port \$RPC_PORT_NODE_$i --ipcdisable --unlock \$ETH_ADDR_NODE_$i --password password.txt --mine --snapshot=false --miner.etherbase \$ETH_ADDR_NODE_$i"
+command="geth --identity 'node$i' --datadir node$i --syncmode 'full' --ws --ws.addr \$IP_NODE_$i --ws.port \$WS_PORT_NODE_$i --port \$ETH_PORT_NODE_$i --bootnodes \$BOOTNODE_URL --ws.api 'eth,net,web3,personal,miner,admin,clique' --networkid \$NETWORK_ID --nat 'any' --allow-insecure-unlock --authrpc.port \$RPC_PORT_NODE_$i --ipcdisable --unlock \$ETH_ADDR_NODE_$i --password password.txt --mine --snapshot=false --miner.etherbase \$ETH_ADDR_NODE_$i"
 
 # Add verbosity option to the command if logs need to be saved
 if [ "\$SAVE_LOGS" == "y" ] || [ "\$SAVE_LOGS" == "Y" ]; then
   command="\$command --verbosity 3 >> ./logs/node$i.log 2>&1"
 else
-  command="\$command >> /dev/null 2>&1"
+  command="\$command"
 fi
 
 # Execute the command
