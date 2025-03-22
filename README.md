@@ -84,3 +84,6 @@ To retrieve the private keys, follow these steps:
 2. Execute the `private_key_decrypt.py` script in the repository's root directory.
 
 The script will search for and decrypt the private keys in the `keystore` directories of your nodes, displaying the private keys in the console.
+
+
+---
